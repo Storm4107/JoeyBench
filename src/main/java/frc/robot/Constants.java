@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -18,9 +20,27 @@ public final class Constants {
   }
   public static class TestBedConstants {
 
+    // universal constants 
+
+    public static final double openLoopRamp = 0;
+
+    // Vortex specific Constants 
+
     public static final boolean vortexInvert = true;
-    public static final ngl
+    public static final int vortexCurrentLimit = 40;
+    public static final int vortexCurrentThreshold = 60;
+    public static final double vortexCurrentThresholdTime = 0.1;
+    public static final boolean vortexCurrentEnableCurrent = true;
+    public static final IdleMode vortexIdleMode = IdleMode.kBrake;
+    public static final double vortexGearRatio = (1/1);  //it is the motorr / mechanism 
+
+
+    // Neo specific Constants 
+
+
+
+
+
   
   }
 }
-jl
