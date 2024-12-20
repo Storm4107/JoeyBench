@@ -11,13 +11,15 @@ import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.HardwareConfigs;
+import frc.robot.Robot;
 
 public class TestBench extends SubsystemBase {
-
-  private HardwareConfigs hardwareConfigs;
 
   public SparkMax Neo = new SparkMax(Constants.TestBedConstants.neoID, MotorType.kBrushless);
   public SparkMax Vortex = new SparkMax(Constants.TestBedConstants.vortexID, MotorType.kBrushless);
@@ -25,8 +27,9 @@ public class TestBench extends SubsystemBase {
   /** Creates a new TestBench. */
   public TestBench() {
 
-    Neo.configure(hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
-    Vortex.configure(hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+
+    Neo.configure(Robot.hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    Vortex.configure(Robot.hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
 
   }
 
@@ -43,6 +46,8 @@ public class TestBench extends SubsystemBase {
 
   @Override
   public void periodic() {
+    SmartDashboard.putNumber("Current velocity", Neo.getEncoder().getVelocity());
     // This method will be called once per scheduler run
   }
+
 }

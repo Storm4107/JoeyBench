@@ -4,13 +4,21 @@
 
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.TestBench;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class VelocityCommand extends Command {
   /** Creates a new VelocityCommand. */
-  public VelocityCommand() {
+  public DoubleSupplier Joystick;
+  public TestBench testBench;
+  public VelocityCommand(TestBench testBench, DoubleSupplier Joystick) {
+    addRequirements(testBench);
     // Use addRequirements() here to declare subsystem dependencies.
+    this.testBench = testBench;
+    this.Joystick = Joystick;
   }
 
   // Called when the command is initially scheduled.
@@ -19,7 +27,9 @@ public class VelocityCommand extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    testBench.setVelocity(Joystick.getAsDouble());
+  }
 
   // Called once the command ends or is interrupted.
   @Override

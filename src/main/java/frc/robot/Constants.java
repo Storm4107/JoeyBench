@@ -40,14 +40,5 @@ public final class Constants {
     public static final double vortexkP = 0.001;
     public static final double vortexkD = 0;
 
-  
-
-    // Neo specific Constants 
-
-
-
-
-
-  
   }
 }
