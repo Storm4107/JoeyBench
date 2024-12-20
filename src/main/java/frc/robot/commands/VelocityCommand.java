@@ -29,6 +29,7 @@ public class VelocityCommand extends Command {
   @Override
   public void execute() {
     testBench.setVelocity(Joystick.getAsDouble());
+   //testBench.setVoltage(Joystick.getAsDouble());
   }
 
   // Called once the command ends or is interrupted.

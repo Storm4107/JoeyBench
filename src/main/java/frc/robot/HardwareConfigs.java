@@ -8,6 +8,7 @@ import java.security.cert.CRLReason;
 
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.ClosedLoopConfig.ClosedLoopSlot;
+import com.revrobotics.spark.config.ClosedLoopConfig.FeedbackSensor;
 
 /** Add your docs here. */
 public final class HardwareConfigs {
@@ -22,10 +23,15 @@ public final class HardwareConfigs {
         vortexConfig.inverted(Constants.TestBedConstants.vortexInvert);
         vortexConfig.idleMode(Constants.TestBedConstants.vortexIdleMode);
         vortexConfig.smartCurrentLimit(Constants.TestBedConstants.vortexCurrentLimit);
-        vortexConfig.encoder.positionConversionFactor(Constants.TestBedConstants.vortexGearRatio);
+       // vortexConfig.encoder.positionConversionFactor(Constants.TestBedConstants.vortexGearRatio);
+        //vortexConfig.encoder.velocityConversionFactor((Constants.TestBedConstants.vortexVelocityConversionFactor));
         vortexConfig.openLoopRampRate(Constants.TestBedConstants.openLoopRamp);
-        vortexConfig.closedLoop.p(Constants.TestBedConstants.vortexkP, ClosedLoopSlot.kSlot0);
-        vortexConfig.closedLoop.d(Constants.TestBedConstants.vortexkD, ClosedLoopSlot.kSlot0);
+        vortexConfig.closedLoopRampRate(Constants.TestBedConstants.closedLoopRamp);
+    
+
+        vortexConfig.closedLoop.feedbackSensor(FeedbackSensor.kPrimaryEncoder)
+        .pid(Constants.TestBedConstants.vortexkP, Constants.TestBedConstants.vortexkI, Constants.TestBedConstants.vortexkD, ClosedLoopSlot.kSlot0);
+        //.velocityFF(1 / 565, ClosedLoopSlot.kSlot0);
 
     }
 
