@@ -20,6 +20,9 @@ public final class Constants {
   }
   public static class TestBedConstants {
 
+    public static final int vortexID = 1;
+    public static final int neoID = 2;
+
     // universal constants 
 
     public static final double openLoopRamp = 0;
@@ -33,7 +36,11 @@ public final class Constants {
     public static final boolean vortexCurrentEnableCurrent = true;
     public static final IdleMode vortexIdleMode = IdleMode.kBrake;
     public static final double vortexGearRatio = (1/1);  //it is the motorr / mechanism 
+    public static final double vortexMaxRPM = 3000;
+    public static final double vortexkP = 0.001;
+    public static final double vortexkD = 0;
 
+  
 
     // Neo specific Constants 
 

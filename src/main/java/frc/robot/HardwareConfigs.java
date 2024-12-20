@@ -4,7 +4,10 @@
 
 package frc.robot;
 
+import java.security.cert.CRLReason;
+
 import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.config.ClosedLoopConfig.ClosedLoopSlot;
 
 /** Add your docs here. */
 public final class HardwareConfigs {
@@ -15,6 +18,14 @@ public final class HardwareConfigs {
     public SparkMaxConfig neoConfig = new SparkMaxConfig();
 
     public HardwareConfigs() {
+
+        vortexConfig.inverted(Constants.TestBedConstants.vortexInvert);
+        vortexConfig.idleMode(Constants.TestBedConstants.vortexIdleMode);
+        vortexConfig.smartCurrentLimit(Constants.TestBedConstants.vortexCurrentLimit);
+        vortexConfig.encoder.positionConversionFactor(Constants.TestBedConstants.vortexGearRatio);
+        vortexConfig.openLoopRampRate(Constants.TestBedConstants.openLoopRamp);
+        vortexConfig.closedLoop.p(Constants.TestBedConstants.vortexkP, ClosedLoopSlot.kSlot0);
+        vortexConfig.closedLoop.d(Constants.TestBedConstants.vortexkD, ClosedLoopSlot.kSlot0);
 
     }
 
