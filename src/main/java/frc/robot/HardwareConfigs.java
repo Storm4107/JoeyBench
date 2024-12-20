@@ -14,8 +14,8 @@ public final class HardwareConfigs {
 
     // init
 
-    public SparkMaxConfig vortexConfig = new SparkMaxConfig();
-    public SparkMaxConfig neoConfig = new SparkMaxConfig();
+    public static SparkMaxConfig vortexConfig = new SparkMaxConfig();
+    public static SparkMaxConfig neoConfig = new SparkMaxConfig();
 
     public HardwareConfigs() {
 

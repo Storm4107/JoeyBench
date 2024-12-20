@@ -20,16 +20,18 @@ import frc.robot.HardwareConfigs;
 import frc.robot.Robot;
 
 public class TestBench extends SubsystemBase {
+  public HardwareConfigs hardwareConfigs;
 
   public SparkMax Neo = new SparkMax(Constants.TestBedConstants.neoID, MotorType.kBrushless);
   public SparkMax Vortex = new SparkMax(Constants.TestBedConstants.vortexID, MotorType.kBrushless);
 
   /** Creates a new TestBench. */
   public TestBench() {
+    this.hardwareConfigs = Robot.hardwareConfigs;
 
 
-    Neo.configure(Robot.hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
-    Vortex.configure(Robot.hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    Neo.configure(hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
+    Vortex.configure(hardwareConfigs.vortexConfig, ResetMode.kNoResetSafeParameters, PersistMode.kPersistParameters);
 
   }
 
